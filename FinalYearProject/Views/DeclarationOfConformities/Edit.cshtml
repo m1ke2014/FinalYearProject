@@ -138,6 +138,33 @@
         </div>
 
         <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <table>
+                    <tr>
+                        @{
+                            int cnt = 0;
+                            List<FinalYearProject.ViewModels.SelectedChemicalsData> chemicals = ViewBag.Chemicals;
+
+                            foreach (var chemical in chemicals)
+                            {
+                                if (cnt++ % 3 == 0)
+                                {
+                                    @:</tr><tr>
+                                }
+                                @:<td>
+                                    <input type="checkbox"
+                                           name="selectedChemicals"
+                                           @(Html.Raw(chemical.Assigned ? "checked=\"checked\"" : "")) />
+                                    @chemical.ChemicalID @: @chemical.Description
+                                    @:</td>
+                            }
+                            @:</tr>
+                        }
+                    </table>
+                </div>
+            </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.EquipmentCleaned, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.EquipmentCleaned, new { htmlAttributes = new { @class = "form-control" } })
