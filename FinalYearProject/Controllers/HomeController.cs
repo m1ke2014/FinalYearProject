@@ -13,6 +13,7 @@ namespace FinalYearProject.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -26,5 +27,13 @@ namespace FinalYearProject.Controllers
 
             return View();
         }
+
+        [Authorize]
+        public ActionResult StaffArea()
+        {
+            return View();
+        }
+
+
     }
 }

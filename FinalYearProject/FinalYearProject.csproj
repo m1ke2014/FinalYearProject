@@ -168,8 +168,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ChemicalController.cs" />
+    <Compile Include="Controllers\DeclarationOfConformitiesController.cs" />
+    <Compile Include="Controllers\FaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ServiceCallController.cs" />
+    <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="DAL\ServiceContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -250,6 +256,36 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Chemical\Create.cshtml" />
+    <Content Include="Views\Chemical\Delete.cshtml" />
+    <Content Include="Views\Chemical\Details.cshtml" />
+    <Content Include="Views\Chemical\Edit.cshtml" />
+    <Content Include="Views\Chemical\Index.cshtml" />
+    <Content Include="Views\DeclarationOfConformities\Create.cshtml" />
+    <Content Include="Views\DeclarationOfConformities\Delete.cshtml" />
+    <Content Include="Views\DeclarationOfConformities\Details.cshtml" />
+    <Content Include="Views\DeclarationOfConformities\Edit.cshtml" />
+    <Content Include="Views\DeclarationOfConformities\Index.cshtml" />
+    <Content Include="Views\Fault\Create.cshtml" />
+    <Content Include="Views\Fault\Delete.cshtml" />
+    <Content Include="Views\Fault\Details.cshtml" />
+    <Content Include="Views\Fault\Edit.cshtml" />
+    <Content Include="Views\Fault\Index.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Delete.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\ServiceCall\Create.cshtml" />
+    <Content Include="Views\ServiceCall\Delete.cshtml" />
+    <Content Include="Views\ServiceCall\Details.cshtml" />
+    <Content Include="Views\ServiceCall\Edit.cshtml" />
+    <Content Include="Views\ServiceCall\Index.cshtml" />
+    <Content Include="Views\Staff\Create.cshtml" />
+    <Content Include="Views\Staff\Delete.cshtml" />
+    <Content Include="Views\Staff\Details.cshtml" />
+    <Content Include="Views\Staff\Edit.cshtml" />
+    <Content Include="Views\Staff\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
