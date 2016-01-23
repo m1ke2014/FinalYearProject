@@ -174,8 +174,21 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Chemical.cs" />
+    <Compile Include="Models\DeclarationOfConformity.cs" />
+    <Compile Include="Models\Fault.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\JobRole.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Privleges.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Quote.cs" />
+    <Compile Include="Models\RMA.cs" />
+    <Compile Include="Models\ServiceCall.cs" />
+    <Compile Include="Models\Staff.cs" />
+    <Compile Include="Models\Status.cs" />
+    <Compile Include="Models\ToDoList.cs" />
+    <Compile Include="Models\WorkAllocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
