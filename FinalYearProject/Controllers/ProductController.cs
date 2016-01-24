@@ -67,7 +67,7 @@ namespace FinalYearProject.Controllers
             if (ModelState.IsValid)
             {
                 db.Products.Add(product);
-                db.SaveChanges();
+                db.SaveChanges();                   // Need exception handler if product exists
                 return RedirectToAction("Index");
             }
 

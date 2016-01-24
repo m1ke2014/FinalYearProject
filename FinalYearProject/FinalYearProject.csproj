@@ -198,6 +198,7 @@
     <Compile Include="Models\WorkAllocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\DOCIndexData.cs" />
     <Compile Include="ViewModels\FaultsIndexData.cs" />
     <Compile Include="ViewModels\SelectedChemicalsData.cs" />
   </ItemGroup>

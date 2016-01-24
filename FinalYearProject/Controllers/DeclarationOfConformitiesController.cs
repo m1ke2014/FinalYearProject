@@ -20,6 +20,9 @@ namespace FinalYearProject.Controllers
         // GET: DeclarationOfConformities
         public ActionResult Index()
         {
+            IQueryable<Chemical> chemicals = db.Chemicals
+                .OrderBy(d => d.ChemicalID);
+            var sql = chemicals.ToString();
             return View(db.DOCs.ToList());
         }
 
@@ -41,6 +44,9 @@ namespace FinalYearProject.Controllers
         // GET: DeclarationOfConformities/Create
         public ActionResult Create()
         {
+            var doc = new DeclarationOfConformity();
+            doc.Chemicals = new List<Chemical>();
+            PopulateSelectedChemicalsData(doc);
             return View();
         }
 
@@ -49,15 +55,33 @@ namespace FinalYearProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,CustomerID,CustomerName,CustomerAddress,ContactName,ContactNumber,Email,Company,Position,Site,Number,PartNo,SerialNo,Description,DateOfInstallation,EquipmentUsage,Chemicals,EquipmentCleaned,DecontaminationProcess,OperationTime,FailureInformation,PartList,ActionTaken")] DeclarationOfConformity declarationOfConformity)
+        public ActionResult Create([Bind(Include = "ID,CustomerID,CustomerName,CustomerAddress,ContactName,ContactNumber,Email,Company,Position,Site,Number,PartNo,SerialNo,Description,DateOfInstallation,EquipmentUsage,EquipmentCleaned,DecontaminationProcess,OperationTime,FailureInformation,PartList,ActionTaken")] DeclarationOfConformity declarationOfConformity, string[] selectedChemicals)
         {
+            //if (ModelState.IsValid)
+            //{
+            //    db.DOCs.Add(declarationOfConformity);
+            //    db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
+
+            //return View(declarationOfConformity);
+
+            if (selectedChemicals != null)
+            {
+                declarationOfConformity.Chemicals = new List<Chemical>();
+                foreach (var chemical in selectedChemicals)
+                {
+                    var chemicalToAdd = db.Chemicals.Find(int.Parse(chemical));
+                    declarationOfConformity.Chemicals.Add(chemicalToAdd);
+                }
+            }
             if (ModelState.IsValid)
             {
                 db.DOCs.Add(declarationOfConformity);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            PopulateSelectedChemicalsData(declarationOfConformity);
             return View(declarationOfConformity);
         }
 

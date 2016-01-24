@@ -54,7 +54,7 @@
             @Html.DisplayNameFor(model => model.EquipmentUsage)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ChemicalID)
+            @Html.DisplayNameFor(model => model.Chemicals)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.EquipmentCleaned)
@@ -77,77 +77,78 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustomerName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustomerAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContactName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContactNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Company)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Position)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Site)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Number)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PartNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SerialNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateOfInstallation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EquipmentUsage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ChemicalID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EquipmentCleaned)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DecontaminationProcess)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OperationTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FailureInformation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PartList)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ActionTaken)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Company)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Site)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SerialNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfInstallation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EquipmentUsage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Chemicals)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EquipmentCleaned)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecontaminationProcess)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OperationTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FailureInformation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartList)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActionTaken)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>

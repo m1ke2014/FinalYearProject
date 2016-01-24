@@ -70,7 +70,8 @@ namespace FinalYearProject.Models
         //[StringLength(20)]
         //public string Chemicals { get; set; }
 
-        public int ChemicalID { get; set; }
+        public int? ChemicalID { get; set; }
+        
         public virtual ICollection<Chemical> Chemicals { get; set; }
 
         [Required]

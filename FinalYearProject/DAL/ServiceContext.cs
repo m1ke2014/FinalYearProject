@@ -25,13 +25,15 @@ namespace FinalYearProject.DAL
         public DbSet<ToDoList> ToDoLists { get; set; }
         public DbSet<JobRole> JobRoles { get; set; }
         public DbSet<Privleges> Privleges { get; set; }
+        public DbSet<Chemical> Chemicals { get; set; }
 
         // Remove pluralisation of table names
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
         }
 
-        public System.Data.Entity.DbSet<FinalYearProject.Models.Chemical> Chemicals { get; set; }
+        //public System.Data.Entity.DbSet<FinalYearProject.Models.Chemical> Chemicals { get; set; }
     }
 }
