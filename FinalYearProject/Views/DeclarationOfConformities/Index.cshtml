@@ -12,68 +12,20 @@
 <table class="table">
     <tr>
         <th>
+            RMA No.
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.CustomerName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CustomerAddress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContactName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContactNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.Company)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Position)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Site)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Number)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PartNo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SerialNo)
-        </th>
+        
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateOfInstallation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EquipmentUsage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Chemicals)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EquipmentCleaned)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DecontaminationProcess)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OperationTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FailureInformation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PartList)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ActionTaken)
-        </th>
+        
         <th></th>
     </tr>
 
@@ -81,68 +33,20 @@
     {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.CustomerName)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomerAddress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContactName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContactNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.Company)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Position)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Site)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Number)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PartNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SerialNo)
-            </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfInstallation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EquipmentUsage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Chemicals)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EquipmentCleaned)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DecontaminationProcess)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OperationTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FailureInformation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PartList)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ActionTaken)
-            </td>
+            
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.ID }) |
