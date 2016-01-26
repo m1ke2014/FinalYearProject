@@ -57,14 +57,6 @@ namespace FinalYearProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,CustomerID,CustomerName,CustomerAddress,ContactName,ContactNumber,Email,Company,Position,Site,Number,PartNo,SerialNo,Description,DateOfInstallation,EquipmentUsage,EquipmentCleaned,DecontaminationProcess,OperationTime,FailureInformation,PartList,ActionTaken")] DeclarationOfConformity declarationOfConformity, string[] selectedChemicals)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    db.DOCs.Add(declarationOfConformity);
-            //    db.SaveChanges();
-            //    return RedirectToAction("Index");
-            //}
-
-            //return View(declarationOfConformity);
 
             if (selectedChemicals != null)
             {

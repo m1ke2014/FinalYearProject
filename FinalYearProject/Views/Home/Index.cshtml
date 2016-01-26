@@ -8,8 +8,7 @@
 
     <p class="lead">Welcome to the MKS Service Application. If you wish to report a new fault please use the form found in the Customer Area.</p>
     <p>
-        <a href="http://asp.net" class="btn btn-primary btn-lg">Customer Area &raquo;</a>
-        <a href="http://asp.net" class="btn btn-primary btn-lg">Staff Area &raquo;</a>
-        <input type="button" class="btn btn-primary btn-lg" value="Staff Area" onclick="@("window.location.href='" + @Url.Action("StaffArea", "Home") +  @Url.Action("StaffArea", "Home") + "' ");" />
+        <input type="button" class="btn btn-primary btn-lg" value="Customer Area" onclick="@("window.location.href='" + @Url.Action("CustomerArea", "Home") + "' ");" />
+        <input type="button" class="btn btn-primary btn-lg" value="Staff Area" onclick="@("window.location.href='" + @Url.Action("StaffArea", "Home") + "' ");" />
     </p>
 </div>

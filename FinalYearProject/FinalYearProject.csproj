@@ -289,6 +289,7 @@
     <Content Include="Views\Staff\Edit.cshtml" />
     <Content Include="Views\Staff\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutCustomer.cshtml" />
+    <Content Include="Views\Home\StaffArea.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

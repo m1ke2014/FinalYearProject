@@ -13,7 +13,6 @@ namespace FinalYearProject.Controllers
             return View();
         }
 
-        [Authorize]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -28,12 +27,18 @@ namespace FinalYearProject.Controllers
             return View();
         }
 
-        [Authorize]
+        // Staff Area button
+        //[Authorize]
         public ActionResult StaffArea()
         {
             return View();
         }
 
+        // Customer Area button
+        public ActionResult CustomerArea()
+        {
+            return RedirectToAction("../DeclarationOfConformities/Create");
+        }
 
     }
 }
