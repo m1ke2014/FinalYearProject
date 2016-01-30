@@ -27,6 +27,18 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
+            <td>
+                @if(item.RMACreated == false)
+                {
+                    ViewBag.RMA = "RMA Needed";
+                }
+                else
+                {
+                    ViewBag.RMA = "RMA Not Needed";
+                }
+
+                @ViewBag.RMA
+            </td>
         </tr>
     }
 </table>

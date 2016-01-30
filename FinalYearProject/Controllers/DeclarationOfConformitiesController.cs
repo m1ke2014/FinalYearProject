@@ -47,6 +47,7 @@ namespace FinalYearProject.Controllers
             var doc = new DeclarationOfConformity();
             doc.Chemicals = new List<Chemical>();
             PopulateSelectedChemicalsData(doc);
+            doc.RMACreated = false;
             return View();
         }
 

@@ -8,6 +8,7 @@ namespace FinalYearProject.Models
 {
     public class DeclarationOfConformity
     {
+        public bool RMACreated { get; set; }
         public int DeclarationOfConformityID { get; set; }
 
         [Required]
