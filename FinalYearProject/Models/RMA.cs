@@ -14,9 +14,13 @@ namespace FinalYearProject.Models
         [Display(Name = "RMA Number")]
         public int RMAid { get; set; }
 
-        public string Priority { get; set; }
         public int TimeTaken { get; set; }
 
+       
+        public int DeclarationOfConformityID { get; set; }
+        public virtual DeclarationOfConformity DOCs { get; set; }
+        public virtual Priority Priorities { get; set; }
+        public virtual ApplicationUser ApplicationUsers { get; set; }
         public virtual Status Status { get; set; }
         public virtual ICollection<ServiceCall> ServiceCalls { get; set; }
     }

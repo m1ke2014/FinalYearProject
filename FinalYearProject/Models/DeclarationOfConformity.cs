@@ -8,9 +8,7 @@ namespace FinalYearProject.Models
 {
     public class DeclarationOfConformity
     {
-        [Required]
-        [Display(Name = "RMA Number")]
-        public int ID { get; set; }
+        public int DeclarationOfConformityID { get; set; }
 
         [Required]
         [Display(Name = "Customer Name")]
@@ -96,5 +94,8 @@ namespace FinalYearProject.Models
         public string PartList { get; set; }
 
         public string ActionTaken { get; set; }
+
+        public int RMAid { get; set; }
+        public virtual RMA RMA { get; set; }
     }
 }

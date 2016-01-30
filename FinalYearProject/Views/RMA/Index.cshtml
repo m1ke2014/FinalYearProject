@@ -1,0 +1,62 @@
+﻿@model FinalYearProject.ViewModels.RMAIndexData
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<h2>Awaiting RMA Creation</h2>
+
+<table class="table">
+    <tr>
+        <th>Customer</th>
+        <th>Product</th>
+    </tr>
+
+    @foreach (var item in Model.DOCs)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+        </tr>
+    }
+</table>
+
+<h2>RMA's</h2>
+<table class="table">
+   <tr>
+       <th>RMA No.</th>
+       <th>Status</th>
+       <th>Engineer</th>
+
+       @foreach (var item in Model.RMAs)
+       {
+           <tr>
+               <td>
+                   @Html.DisplayFor(modelItem => item.RMAid)
+               </td>
+               <td>
+                   @Html.DisplayFor(modelItem => item.Status)
+               </td>
+               <td>
+                   @Html.DisplayFor(modelItem => item.ApplicationUsers)
+               </td>
+       }
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RMAid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RMAid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RMAid })
+        </td>
+    </tr>
+}
+
+</table>

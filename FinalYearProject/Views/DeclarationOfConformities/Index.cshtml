@@ -12,9 +12,6 @@
 <table class="table">
     <tr>
         <th>
-            RMA No.
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.CustomerName)
         </th>
         
@@ -33,9 +30,6 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.CustomerName)
             </td>
             
@@ -48,9 +42,9 @@
             </td>
             
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                @Html.ActionLink("Edit", "Edit", new { id = item.DeclarationOfConformityID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.DeclarationOfConformityID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.DeclarationOfConformityID })
             </td>
         </tr>
     }

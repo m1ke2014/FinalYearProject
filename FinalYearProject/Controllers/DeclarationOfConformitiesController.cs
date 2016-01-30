@@ -88,7 +88,7 @@ namespace FinalYearProject.Controllers
 
             DeclarationOfConformity declarationOfConformity = db.DOCs
             .Include(i => i.Chemicals)
-            .Where(i => i.ID == id)
+            .Where(i => i.DeclarationOfConformityID == id)
             .Single();
             PopulateSelectedChemicalsData(declarationOfConformity);
 
@@ -131,7 +131,7 @@ namespace FinalYearProject.Controllers
 
             var docToUpdate = db.DOCs
                 .Include(i => i.Chemicals)
-                .Where(i => i.ID == id)
+                .Where(i => i.DeclarationOfConformityID == id)
                 .Single();
 
             if (TryUpdateModel(docToUpdate, "",
@@ -215,6 +215,11 @@ namespace FinalYearProject.Controllers
         public ActionResult SubmitConfirm()
         {
             return View();
+        }
+
+        public ActionResult DirectToHome()
+        {
+            return RedirectToAction("../Home/Index");
         }
 
         protected override void Dispose(bool disposing)

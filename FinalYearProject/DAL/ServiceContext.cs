@@ -1,4 +1,5 @@
 ﻿using FinalYearProject.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -30,6 +31,21 @@ namespace FinalYearProject.DAL
         // Remove pluralisation of table names
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<DeclarationOfConformity>()
+                .HasOptional(f => f.RMA)
+                .WithRequired(s => s.DOCs);
+
+            modelBuilder.Entity<RMA>()
+                .HasOptional(c => c.ApplicationUsers)
+                .WithRequired()
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<IdentityUserLogin>().HasKey<string>(l => l.UserId);
+            modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);
+            modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });
+
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
         }
