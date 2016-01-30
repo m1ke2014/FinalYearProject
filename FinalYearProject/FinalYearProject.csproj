@@ -180,6 +180,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601300713269_InitialCreate.cs" />
+    <Compile Include="Migrations\201601300713269_InitialCreate.Designer.cs">
+      <DependentUpon>201601300713269_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601300743201_loginDetails.cs" />
+    <Compile Include="Migrations\201601300743201_loginDetails.Designer.cs">
+      <DependentUpon>201601300743201_loginDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601300753595_LoginDetails2.cs" />
+    <Compile Include="Migrations\201601300753595_LoginDetails2.Designer.cs">
+      <DependentUpon>201601300753595_LoginDetails2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Chemical.cs" />
     <Compile Include="Models\DeclarationOfConformity.cs" />
@@ -301,6 +314,17 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201601300713269_InitialCreate.resx">
+      <DependentUpon>201601300713269_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601300743201_loginDetails.resx">
+      <DependentUpon>201601300743201_loginDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601300753595_LoginDetails2.resx">
+      <DependentUpon>201601300753595_LoginDetails2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
