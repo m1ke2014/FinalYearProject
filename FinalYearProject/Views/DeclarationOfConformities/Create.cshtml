@@ -200,7 +200,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PartList, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PartList, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.PartList, 5, 40, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.PartList, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -208,7 +208,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ActionTaken, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ActionTaken, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.ActionTaken, 5, 40,  new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ActionTaken, "", new { @class = "text-danger" })
             </div>
         </div>

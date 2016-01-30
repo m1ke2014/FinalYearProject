@@ -71,7 +71,7 @@ namespace FinalYearProject.Controllers
             {
                 db.DOCs.Add(declarationOfConformity);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("SubmitConfirm");
             }
             PopulateSelectedChemicalsData(declarationOfConformity);
             return View(declarationOfConformity);
@@ -99,6 +99,7 @@ namespace FinalYearProject.Controllers
             return View(declarationOfConformity);
         }
 
+        // Show all chemicals in Chemical table
         private void PopulateSelectedChemicalsData(DeclarationOfConformity declarationOfConformity)
         {
             var allChemicals = db.Chemicals;
@@ -152,15 +153,9 @@ namespace FinalYearProject.Controllers
             PopulateSelectedChemicalsData(docToUpdate);
             return View(docToUpdate);
 
-            // if (ModelState.IsValid)
-            //{
-            //     db.Entry(declarationOfConformity).State = EntityState.Modified;
-            //     db.SaveChanges();
-            //     return RedirectToAction("Index");
-            // }
-            // return View(declarationOfConformity);
         }
 
+        // Chemicals selected by the user
         private void UpdateDOCChemicals(string[] selectedChemicals, DeclarationOfConformity docToUpdate)
         {
             if (selectedChemicals == null)
@@ -215,6 +210,11 @@ namespace FinalYearProject.Controllers
             db.DOCs.Remove(declarationOfConformity);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult SubmitConfirm()
+        {
+            return View();
         }
 
         protected override void Dispose(bool disposing)
