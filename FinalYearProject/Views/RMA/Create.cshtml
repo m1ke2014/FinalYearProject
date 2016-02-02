@@ -1,4 +1,4 @@
-﻿@model FinalYearProject.Models.RMA
+﻿@model FinalYearProject.ViewModels.RMACreate
 
 @{
     ViewBag.Title = "Create";
@@ -15,20 +15,125 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.RMAid, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.RMAID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.RMAid, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.RMAid, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.RMAID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RMAID, "", new { @class = "text-danger" })
             </div>
         </div>
 
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.DOCID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.DOCID)
+        </div>*@
+
+        @Html.TextBoxFor(model => model.DOCID, new {Type = "Hidden" })
+
         <div class="form-group">
-            @Html.LabelFor(model => model.Priority, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Priority, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Priority, "", new { @class = "text-danger" })
-            </div>
+            @Html.LabelFor(model => model.Customer, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.Customer)
         </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.CustomerAddress)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ContactName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.ContactName)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ContactNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.ContactNumber)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.Email)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Company, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.Company)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Position, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.Position)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Site, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.Site)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Number, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.Number)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PartNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.PartNo)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SerialNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.SerialNo)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.Description)
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateOfInstallation, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.DateOfInstallation)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EquipmentUsage, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.EquipmentUsage)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ChemicalID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.ChemicalID)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EquipmentCleaned, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.EquipmentCleaned)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DecontaminationProcess, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.DecontaminationProcess)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OperationTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.OperationTime)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FailureInformation, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.FailureInformation)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PartList, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.PartList)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ActionTaken, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.DisplayFor(model => model.ActionTaken)
+        </div>
+        
 
         <div class="form-group">
             @Html.LabelFor(model => model.TimeTaken, htmlAttributes: new { @class = "control-label col-md-2" })

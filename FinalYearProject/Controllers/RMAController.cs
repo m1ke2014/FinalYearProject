@@ -19,8 +19,6 @@ namespace FinalYearProject.Controllers
         // GET: RMA
         public ActionResult Index()
         {
-            //return View(db.RMAs.ToList());
-
             RMAIndexData rmaIndex = new RMAIndexData();
             rmaIndex.DOCs = from doc in db.DOCs select doc;
             rmaIndex.RMAs = from rma in db.RMAs select rma;
@@ -44,9 +42,37 @@ namespace FinalYearProject.Controllers
         }
 
         // GET: RMA/Create
-        public ActionResult Create()
+        public ActionResult Create(int declarationOfConformityID)
         {
-            return View();
+            var doc = db.DOCs.Find(declarationOfConformityID);
+
+            var rmaCreate = new RMACreate
+            {
+                DOCID = declarationOfConformityID,
+                Customer = doc.CustomerName,
+                CustomerAddress = doc.CustomerAddress,
+                ContactName = doc.ContactName,
+                ContactNumber = doc.ContactNumber,
+                Email = doc.Email,
+                Company = doc.Company,
+                Position = doc.Position,
+                Site = doc.Site,
+                Number = doc.Number,
+                PartNo = doc.PartNo,
+                SerialNo = doc.SerialNo,
+                Description = doc.Description,
+                DateOfInstallation = doc.DateOfInstallation,
+                EquipmentUsage = doc.EquipmentUsage,
+                ChemicalID = doc.ChemicalID,
+                EquipmentCleaned = doc.EquipmentCleaned,
+                DecontaminationProcess = doc.DecontaminationProcess,
+                OperationTime = doc.OperationTime,
+                FailureInformation = doc.FailureInformation,
+                PartList = doc.PartList,
+                ActionTaken = doc.ActionTaken,
+            };
+
+            return View(rmaCreate);
         }
 
         // POST: RMA/Create
@@ -54,7 +80,7 @@ namespace FinalYearProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RMAid,Priority,TimeTaken")] RMA rMA)
+        public ActionResult Create([Bind(Include = "RMAid,TimeTaken")] RMA rMA)
         {
             if (ModelState.IsValid)
             {
