@@ -46,6 +46,7 @@ namespace FinalYearProject.Controllers
         public ActionResult Create(int declarationOfConformityID)
         {
             PopulatePriorityDropDownList();
+            PopulateUserDropDownList();
             var doc = db.DOCs.Find(declarationOfConformityID);
 
             var rmaCreate = new RMACreate
@@ -99,6 +100,8 @@ namespace FinalYearProject.Controllers
                 ModelState.AddModelError("", "Unable to save changes. Please try again.");
             }
             PopulatePriorityDropDownList(rMA.Priorityid);
+
+            PopulateUserDropDownList(rMA.Priorityid);
 
             return View(rMA);
         }
@@ -167,6 +170,15 @@ namespace FinalYearProject.Controllers
                                 orderby priority.Priorityid
                                 select priority;
             ViewBag.Priorityid = new SelectList(priorityQuery, "Priorityid", "Description", selectedPriority);
+        }
+
+        // Populates drop down list with priorities
+        private void PopulateUserDropDownList(object selectedUser = null)
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                ViewBag.Users = context.Users.Select(u => u.FirstName + " " + u.Surname).ToList();
+            }
         }
 
         protected override void Dispose(bool disposing)

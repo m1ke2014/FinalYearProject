@@ -37,6 +37,8 @@ namespace FinalYearProject.ViewModels
 
         public int Priorityid { get; set; }
         public virtual Priority Priorities { get; set; }
+
+        public int UserID { get; set; }
         public virtual ApplicationUser ApplicationUsers { get; set; }
         public virtual Status Status { get; set; }
         public virtual ICollection<ServiceCall> ServiceCalls { get; set; }
