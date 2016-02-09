@@ -47,6 +47,8 @@ namespace FinalYearProject.Controllers
         {
             PopulatePriorityDropDownList();
             PopulateUserDropDownList();
+            PopulateStatusDropDownList();
+
             var doc = db.DOCs.Find(declarationOfConformityID);
 
             var rmaCreate = new RMACreate
@@ -101,7 +103,9 @@ namespace FinalYearProject.Controllers
             }
             PopulatePriorityDropDownList(rMA.Priorityid);
 
-            PopulateUserDropDownList(rMA.Priorityid);
+            PopulateUserDropDownList(rMA.ApplicationUsers);
+
+            PopulateStatusDropDownList(rMA.Status);
 
             return View(rMA);
         }
@@ -172,13 +176,22 @@ namespace FinalYearProject.Controllers
             ViewBag.Priorityid = new SelectList(priorityQuery, "Priorityid", "Description", selectedPriority);
         }
 
-        // Populates drop down list with priorities
+        // Populates drop down list with engineers
         private void PopulateUserDropDownList(object selectedUser = null)
         {
             using (var context = new ApplicationDbContext())
             {
                 ViewBag.Users = context.Users.Select(u => u.FirstName + " " + u.Surname).ToList();
             }
+        }
+
+        // Populates drop down list with statuses
+        private void PopulateStatusDropDownList(object selectedStatus = null)
+        {
+            var statusQuery = from status in db.Statuses
+                                orderby status.StatusID
+                                select status;
+            ViewBag.StatusID = new SelectList(statusQuery, "StatusID", "Description", selectedStatus);
         }
 
         protected override void Dispose(bool disposing)

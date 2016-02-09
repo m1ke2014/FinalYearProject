@@ -40,6 +40,8 @@ namespace FinalYearProject.ViewModels
 
         public int UserID { get; set; }
         public virtual ApplicationUser ApplicationUsers { get; set; }
+
+        public int StatusID { get; set; }
         public virtual Status Status { get; set; }
         public virtual ICollection<ServiceCall> ServiceCalls { get; set; }
     }

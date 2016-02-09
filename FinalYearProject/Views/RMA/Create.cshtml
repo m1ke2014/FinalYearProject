@@ -38,6 +38,14 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <label class="control-label col-md-2" for="StatusID">Status</label>
+            <div class="col-md-10">
+                @Html.DropDownList("StatusID", string.Empty)
+                @Html.ValidationMessageFor(model => model.StatusID)
+            </div>
+        </div>
+
         @Html.TextBoxFor(model => model.DOCID, new {Type = "Hidden" })
 
         <div class="form-group">
