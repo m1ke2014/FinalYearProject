@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace FinalYearProject.ViewModels
 {
@@ -34,6 +35,7 @@ namespace FinalYearProject.ViewModels
         public string ActionTaken { get; set; }
         public int TimeTaken { get; set; }
 
+        public int Priorityid { get; set; }
         public virtual Priority Priorities { get; set; }
         public virtual ApplicationUser ApplicationUsers { get; set; }
         public virtual Status Status { get; set; }

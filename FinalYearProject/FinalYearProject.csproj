@@ -173,6 +173,7 @@
     <Compile Include="Controllers\FaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PriorityController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RMAController.cs" />
     <Compile Include="Controllers\ServiceCallController.cs" />
@@ -325,6 +326,11 @@
     <Content Include="Views\RMA\Details.cshtml" />
     <Content Include="Views\RMA\Edit.cshtml" />
     <Content Include="Views\RMA\Index.cshtml" />
+    <Content Include="Views\Priority\Create.cshtml" />
+    <Content Include="Views\Priority\Delete.cshtml" />
+    <Content Include="Views\Priority\Details.cshtml" />
+    <Content Include="Views\Priority\Edit.cshtml" />
+    <Content Include="Views\Priority\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

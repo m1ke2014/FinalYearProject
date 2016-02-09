@@ -27,6 +27,7 @@ namespace FinalYearProject.DAL
         public DbSet<JobRole> JobRoles { get; set; }
         public DbSet<Privleges> Privleges { get; set; }
         public DbSet<Chemical> Chemicals { get; set; }
+        public DbSet<Priority> Priorities { get; set; }
 
         // Remove pluralisation of table names
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

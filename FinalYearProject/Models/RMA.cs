@@ -19,6 +19,8 @@ namespace FinalYearProject.Models
        
         public int DeclarationOfConformityID { get; set; }
         public virtual DeclarationOfConformity DOCs { get; set; }
+
+        public int Priorityid { get; set; }
         public virtual Priority Priorities { get; set; }
         public virtual ApplicationUser ApplicationUsers { get; set; }
         public virtual Status Status { get; set; }

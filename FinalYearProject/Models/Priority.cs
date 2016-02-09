@@ -7,7 +7,7 @@ namespace FinalYearProject.Models
 {
     public class Priority
     {
-        public int id { get; set; }
+        public int Priorityid { get; set; }
         public string Description { get; set; }
     }
 }

@@ -22,10 +22,13 @@
             </div>
         </div>
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.DOCID, htmlAttributes: new { @class = "control-label col-md-2" })
-            @Html.DisplayFor(model => model.DOCID)
-        </div>*@
+        <div class="form-group">
+            <label class="control-label col-md-2" for="PriorityID">Priority</label>
+            <div class="col-md-10">
+                @Html.DropDownList("Priorityid", string.Empty)
+                @Html.ValidationMessageFor(model => model.Priorityid)
+            </div>
+        </div>
 
         @Html.TextBoxFor(model => model.DOCID, new {Type = "Hidden" })
 

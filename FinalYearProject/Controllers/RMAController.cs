@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using FinalYearProject.DAL;
 using FinalYearProject.Models;
 using FinalYearProject.ViewModels;
+using System.Data.Entity.Infrastructure;
 
 namespace FinalYearProject.Controllers
 {
@@ -44,6 +45,7 @@ namespace FinalYearProject.Controllers
         // GET: RMA/Create
         public ActionResult Create(int declarationOfConformityID)
         {
+            PopulatePriorityDropDownList();
             var doc = db.DOCs.Find(declarationOfConformityID);
 
             var rmaCreate = new RMACreate
@@ -80,14 +82,23 @@ namespace FinalYearProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RMAid,TimeTaken")] RMA rMA)
+        public ActionResult Create([Bind(Include = "RMAid,TimeTaken,Priorityid")] RMA rMA)
         {
-            if (ModelState.IsValid)
+
+            try
             {
-                db.RMAs.Add(rMA);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.RMAs.Add(rMA);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
+            catch (RetryLimitExceededException)
+            {
+                ModelState.AddModelError("", "Unable to save changes. Please try again.");
+            }
+            PopulatePriorityDropDownList(rMA.Priorityid);
 
             return View(rMA);
         }
@@ -147,6 +158,15 @@ namespace FinalYearProject.Controllers
             db.RMAs.Remove(rMA);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        // Populates drop down list with priorities
+        private void PopulatePriorityDropDownList(object selectedPriority = null)
+        {
+            var priorityQuery = from priority in db.Priorities
+                                orderby priority.Priorityid
+                                select priority;
+            ViewBag.Priorityid = new SelectList(priorityQuery, "Priorityid", "Description", selectedPriority);
         }
 
         protected override void Dispose(bool disposing)
