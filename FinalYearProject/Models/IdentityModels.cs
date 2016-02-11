@@ -10,6 +10,7 @@ namespace FinalYearProject.Models
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        public int UserID { get; set; }
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
         public string Surname { get; set; }
@@ -29,6 +30,7 @@ namespace FinalYearProject.Models
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
+
         {
         }
 

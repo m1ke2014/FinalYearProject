@@ -16,14 +16,25 @@ namespace FinalYearProject.Models
 
         public int TimeTaken { get; set; }
 
+        [Display(Name = "Corrective Action")]
+        public string CorrectiveAction { get; set; }
+
+        [Display(Name = "Parts Used")]
+        public string PartsUsed { get; set; }
+
        
         public int DeclarationOfConformityID { get; set; }
         public virtual DeclarationOfConformity DOCs { get; set; }
 
         public int Priorityid { get; set; }
         public virtual Priority Priorities { get; set; }
-        public virtual ApplicationUser ApplicationUsers { get; set; }
+
+        public int StaffID { get; set; }
+        public virtual Staff StaffMembers { get; set; }
+
+        public int StatusID { get; set; }
         public virtual Status Status { get; set; }
+
         public virtual ICollection<ServiceCall> ServiceCalls { get; set; }
     }
 }

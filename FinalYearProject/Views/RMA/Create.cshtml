@@ -31,10 +31,10 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="UserId">Engineer</label>
+            <label class="control-label col-md-2" for="StaffID">Engineer</label>
             <div class="col-md-10">
-                @Html.DropDownList("Users", new SelectList(ViewBag.Users))
-                @Html.ValidationMessageFor(model => model.UserID)
+                @Html.DropDownList("StaffID", string.Empty)
+                @Html.ValidationMessageFor(model => model.StaffID)
             </div>
         </div>
 

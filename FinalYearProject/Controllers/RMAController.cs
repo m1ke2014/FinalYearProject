@@ -10,6 +10,7 @@ using FinalYearProject.DAL;
 using FinalYearProject.Models;
 using FinalYearProject.ViewModels;
 using System.Data.Entity.Infrastructure;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace FinalYearProject.Controllers
 {
@@ -46,7 +47,7 @@ namespace FinalYearProject.Controllers
         public ActionResult Create(int declarationOfConformityID)
         {
             PopulatePriorityDropDownList();
-            PopulateUserDropDownList();
+            PopulateStaffDropDownList();
             PopulateStatusDropDownList();
 
             var doc = db.DOCs.Find(declarationOfConformityID);
@@ -85,7 +86,7 @@ namespace FinalYearProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RMAid,TimeTaken,Priorityid")] RMA rMA)
+        public ActionResult Create([Bind(Include = "RMAid,DeclarationOfConformityID,TimeTaken,Priorityid,StatusID,StaffID")] RMA rMA)
         {
 
             try
@@ -103,9 +104,9 @@ namespace FinalYearProject.Controllers
             }
             PopulatePriorityDropDownList(rMA.Priorityid);
 
-            PopulateUserDropDownList(rMA.ApplicationUsers);
+            PopulateStaffDropDownList(rMA.StaffID);
 
-            PopulateStatusDropDownList(rMA.Status);
+            PopulateStatusDropDownList(rMA.StatusID);
 
             return View(rMA);
         }
@@ -176,13 +177,13 @@ namespace FinalYearProject.Controllers
             ViewBag.Priorityid = new SelectList(priorityQuery, "Priorityid", "Description", selectedPriority);
         }
 
-        // Populates drop down list with engineers
-        private void PopulateUserDropDownList(object selectedUser = null)
+        // Populates drop down list with members of staff
+        private void PopulateStaffDropDownList(object selectedStaff = null)
         {
-            using (var context = new ApplicationDbContext())
-            {
-                ViewBag.Users = context.Users.Select(u => u.FirstName + " " + u.Surname).ToList();
-            }
+                var staffQuery = from staff in db.StaffMembers
+                                orderby staff.StaffID
+                                select staff;
+                ViewBag.StaffID = new SelectList(staffQuery, "StaffID", "FullName", selectedStaff);
         }
 
         // Populates drop down list with statuses

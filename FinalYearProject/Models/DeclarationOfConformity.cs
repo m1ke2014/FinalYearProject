@@ -96,7 +96,7 @@ namespace FinalYearProject.Models
 
         public string ActionTaken { get; set; }
 
-        public int RMAid { get; set; }
-        public virtual RMA RMA { get; set; }
+        //public int RMAid { get; set; }
+        //public virtual RMA RMA { get; set; }
     }
 }

@@ -64,6 +64,7 @@ namespace FinalYearProject.Models
 
     public class RegisterViewModel
     {
+        public int UserID { get; set; }
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

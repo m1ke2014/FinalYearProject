@@ -18,7 +18,17 @@ namespace FinalYearProject.Models
         [Required]
         public string Surname { get; set; }
 
-        public virtual JobRole JobRole { get; set; }
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + Surname;
+            }
+        }
+
+        //public virtual JobRole JobRole { get; set; }
+
+
     }
 
 }

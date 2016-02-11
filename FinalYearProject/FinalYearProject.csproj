@@ -206,6 +206,10 @@
     <Compile Include="Migrations\201601301019382_fluentMapping.Designer.cs">
       <DependentUpon>201601301019382_fluentMapping.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602102113258_userUpdate.cs" />
+    <Compile Include="Migrations\201602102113258_userUpdate.Designer.cs">
+      <DependentUpon>201602102113258_userUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Chemical.cs" />
@@ -361,6 +365,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601301019382_fluentMapping.resx">
       <DependentUpon>201601301019382_fluentMapping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602102113258_userUpdate.resx">
+      <DependentUpon>201602102113258_userUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

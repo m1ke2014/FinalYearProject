@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace FinalYearProject.ViewModels
 {
@@ -38,11 +39,12 @@ namespace FinalYearProject.ViewModels
         public int Priorityid { get; set; }
         public virtual Priority Priorities { get; set; }
 
-        public int UserID { get; set; }
-        public virtual ApplicationUser ApplicationUsers { get; set; }
+        public int StaffID { get; set; }
+        public virtual Staff StaffMembers { get; set; }
 
         public int StatusID { get; set; }
         public virtual Status Status { get; set; }
+
         public virtual ICollection<ServiceCall> ServiceCalls { get; set; }
     }
 }
