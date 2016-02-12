@@ -86,7 +86,7 @@ namespace FinalYearProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RMAid,DeclarationOfConformityID,TimeTaken,Priorityid,StatusID,StaffID")] RMA rMA)
+        public ActionResult Create([Bind(Include = "RMAid,DeclarationOfConformityID,TimeTaken,CorrectiveAction,PartsUsed,Priorityid,StatusID,StaffID")] RMA rMA)
         {
 
             try
