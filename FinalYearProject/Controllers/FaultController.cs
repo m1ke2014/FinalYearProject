@@ -17,9 +17,20 @@ namespace FinalYearProject.Controllers
         private ServiceContext db = new ServiceContext();
 
         // GET: Fault
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.Faults.ToList());
+            //return View(db.Faults.ToList());
+
+            // Add search ability
+            var faults = from fault in db.Faults
+                         select fault;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                faults = faults.Where(fault => fault.FaultDescription.Contains(searchString));
+            }
+
+            return View(faults.ToList());
         }
 
         // GET: Fault/Details/5

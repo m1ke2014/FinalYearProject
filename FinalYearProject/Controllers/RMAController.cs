@@ -10,7 +10,6 @@ using FinalYearProject.DAL;
 using FinalYearProject.Models;
 using FinalYearProject.ViewModels;
 using System.Data.Entity.Infrastructure;
-using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace FinalYearProject.Controllers
 {
@@ -86,7 +85,7 @@ namespace FinalYearProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RMAid,DeclarationOfConformityID,TimeTaken,Priorityid,StatusID,StaffID")] RMA rMA)
+        public ActionResult Create([Bind(Include = "RMAid,DeclarationOfConformityID,TimeTaken,CorrectiveAction,PartsUsed,Priorityid,StatusID,StaffID")] RMA rMA)
         {
 
             try
@@ -131,7 +130,7 @@ namespace FinalYearProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RMAid,Priority,TimeTaken")] RMA rMA)
+        public ActionResult Edit([Bind(Include = "RMAid,DeclarationOfConformityID,TimeTaken,CorrectiveAction,PartsUsed,Priorityid,StatusID,StaffID")] RMA rMA)
         {
             if (ModelState.IsValid)
             {

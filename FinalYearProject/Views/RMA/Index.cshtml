@@ -53,9 +53,8 @@
                <td>
                    @Html.DisplayFor(modelItem => item.StaffID)
                </td>
-       }
+       
         <td>
-            @Html.ActionLink("Create RMA", "Create", new { @declarationOfConformityID = item.DeclarationOfConformityID}) |
             @Html.ActionLink("Edit", "Edit", new { id=item.RMAid }) |
             @Html.ActionLink("Details", "Details", new { id=item.RMAid }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.RMAid })
