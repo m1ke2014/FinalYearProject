@@ -40,6 +40,7 @@ namespace FinalYearProject.Controllers
         // GET: ServiceCall/Create
         public ActionResult Create()
         {
+            PopulateRMADropDownList();
             PopulateProductDropDownList();
             return View();
         }
@@ -49,7 +50,7 @@ namespace FinalYearProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ServiceCallID,Description,SerialNo")] ServiceCall serviceCall)
+        public ActionResult Create([Bind(Include = "ServiceCallID,Description,SerialNo,rmaID")] ServiceCall serviceCall)
         {
             try
             {
@@ -65,6 +66,7 @@ namespace FinalYearProject.Controllers
                 ModelState.AddModelError("", "Unable to save changes. Please try again.");
             }
 
+            PopulateRMADropDownList(serviceCall.RMAid);
             PopulateProductDropDownList(serviceCall.ProductID);
 
             return View(serviceCall);
@@ -78,6 +80,16 @@ namespace FinalYearProject.Controllers
                                 orderby product.ProductID
                                 select product;
             ViewBag.ProductID = new SelectList(productsQuery, "ProductID", "ProductDescription", selectedProduct);
+        }
+
+
+        // Populates drop down list with RMA's
+        private void PopulateRMADropDownList(object selectedRMA = null)
+        {
+            var RMAQuery = from rma in db.RMAs
+                                orderby rma.RMAid
+                                select rma;
+            ViewBag.RMAid = new SelectList(RMAQuery, "RMAid", "RMAid", selectedRMA);
         }
 
         // GET: ServiceCall/Edit/5

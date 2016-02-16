@@ -15,11 +15,12 @@
         <h4>ServiceCall</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
         <div class="form-group">
-            @Html.LabelFor(model => model.ServiceCallID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.RMAid, "RMA", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ServiceCallID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ServiceCallID, "", new { @class = "text-danger" })
+                @Html.DropDownList("RMAid", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.RMAid, "", new { @class = "text-danger" })
             </div>
         </div>
 

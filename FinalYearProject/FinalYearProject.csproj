@@ -233,6 +233,7 @@
     <Compile Include="ViewModels\DOCIndexData.cs" />
     <Compile Include="ViewModels\FaultsIndexData.cs" />
     <Compile Include="ViewModels\RMACreate.cs" />
+    <Compile Include="ViewModels\RMAEdit.cs" />
     <Compile Include="ViewModels\RMAIndexData.cs" />
     <Compile Include="ViewModels\SelectedChemicalsData.cs" />
   </ItemGroup>
