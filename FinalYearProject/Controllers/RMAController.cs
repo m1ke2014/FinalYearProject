@@ -75,8 +75,10 @@ namespace FinalYearProject.Controllers
                 FailureInformation = doc.FailureInformation,
                 PartList = doc.PartList,
                 ActionTaken = doc.ActionTaken,
+                RMACreated = doc.RMACreated,
             };
-            doc.RMACreated = true;
+            UpdateDOC(declarationOfConformityID);
+            //doc.RMACreated = true;
             return View(rmaCreate);
         }
 
@@ -101,6 +103,9 @@ namespace FinalYearProject.Controllers
             {
                 ModelState.AddModelError("", "Unable to save changes. Please try again.");
             }
+
+            UpdateDOC(rMA.DeclarationOfConformityID);
+
             PopulatePriorityDropDownList(rMA.Priorityid);
 
             PopulateStaffDropDownList(rMA.StaffID);
@@ -218,6 +223,21 @@ namespace FinalYearProject.Controllers
                                 orderby status.StatusID
                                 select status;
             ViewBag.StatusID = new SelectList(statusQuery, "StatusID", "Description", selectedStatus);
+        }
+
+
+        // Updates the RMACreated field in the DOC database
+        public void UpdateDOC(int docID)
+        {
+            using (var context = new ServiceContext())
+            {
+                DeclarationOfConformity docUpdate = context.DOCs.FirstOrDefault(d => d.DeclarationOfConformityID == docID);
+                if (docUpdate != null)
+                {
+                    docUpdate.RMACreated = true;
+                }
+                context.SaveChanges();
+            }
         }
 
         protected override void Dispose(bool disposing)

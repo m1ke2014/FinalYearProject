@@ -37,6 +37,7 @@ namespace FinalYearProject.ViewModels
         public int TimeTaken { get; set; }
         public string CorrectiveAction { get; set; }
         public string PartsUsed { get; set; }
+        public bool RMACreated { get; set; }
 
         public int Priorityid { get; set; }
         public virtual Priority Priorities { get; set; }
