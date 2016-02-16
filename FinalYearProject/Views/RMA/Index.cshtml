@@ -28,7 +28,14 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.ActionLink("Create RMA", "Create", new { @declarationOfConformityID = item.DeclarationOfConformityID }) 
+                @if (item.RMACreated == false)
+                {
+                    @Html.ActionLink("Create RMA", "Create", new { @declarationOfConformityID = item.DeclarationOfConformityID }) 
+                }
+                else
+                {
+                    ViewBag.RMAStatus = "RMA Created.";
+                }
             </td>
         </tr>
     }
@@ -39,6 +46,7 @@
    <tr>
        <th>RMA No.</th>
        <th>Status</th>
+       <th>Fault Description</th>
        <th>Engineer</th>
 
        @foreach (var item in Model.RMAs)
@@ -48,14 +56,17 @@
                    @Html.DisplayFor(modelItem => item.RMAid)
                </td>
                <td>
-                   @Html.DisplayFor(modelItem => item.StatusID)
+                   @Html.DisplayFor(modelItem => item.Status.Description)
                </td>
                <td>
-                   @Html.DisplayFor(modelItem => item.StaffID)
+                   @Html.DisplayFor(modelItem => item.DOCs.FailureInformation)
+               </td>
+               <td>
+                   @Html.DisplayFor(modelItem => item.StaffMembers.FullName)
                </td>
        
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RMAid }) |
+            @Html.ActionLink("Update", "Edit", new { id=item.RMAid }) |
             @Html.ActionLink("Details", "Details", new { id=item.RMAid }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.RMAid })
         </td>

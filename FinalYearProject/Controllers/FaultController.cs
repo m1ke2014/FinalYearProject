@@ -19,8 +19,6 @@ namespace FinalYearProject.Controllers
         // GET: Fault
         public ActionResult Index(string searchString)
         {
-            //return View(db.Faults.ToList());
-
             // Add search ability
             var faults = from fault in db.Faults
                          select fault;

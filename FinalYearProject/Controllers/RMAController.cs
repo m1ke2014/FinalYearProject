@@ -76,7 +76,7 @@ namespace FinalYearProject.Controllers
                 PartList = doc.PartList,
                 ActionTaken = doc.ActionTaken,
             };
-
+            doc.RMACreated = true;
             return View(rmaCreate);
         }
 
@@ -122,23 +122,49 @@ namespace FinalYearProject.Controllers
             {
                 return HttpNotFound();
             }
+
+            PopulatePriorityDropDownList(rMA.Priorityid);
+            PopulateStaffDropDownList(rMA.StaffID);
+            PopulateStatusDropDownList(rMA.StatusID);
+
             return View(rMA);
         }
 
         // POST: RMA/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RMAid,DeclarationOfConformityID,TimeTaken,CorrectiveAction,PartsUsed,Priorityid,StatusID,StaffID")] RMA rMA)
+        public ActionResult EditPost(int? id)
         {
-            if (ModelState.IsValid)
+
+            if (id ==null)
             {
-                db.Entry(rMA).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            return View(rMA);
+            var rmaToUpdate = db.RMAs.Find(id);
+            if (TryUpdateModel(rmaToUpdate, "",
+                new string[] { "TimeTaken", "CorrectiveAction", "PartsUsed", "Priorityid", "StatusID", "StaffID" }))
+            {
+                try
+                {
+                    db.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+                catch (RetryLimitExceededException)
+                {
+                    ModelState.AddModelError("", "Unable to save changes. Please try again.");
+                }
+            }
+
+            PopulatePriorityDropDownList(rmaToUpdate.Priorityid);
+
+            PopulateStaffDropDownList(rmaToUpdate.StaffID);
+
+            PopulateStatusDropDownList(rmaToUpdate.StatusID);
+
+            return View(rmaToUpdate);
         }
 
         // GET: RMA/Delete/5
