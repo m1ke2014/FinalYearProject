@@ -66,6 +66,7 @@ namespace FinalYearProject.Controllers
                 ModelState.AddModelError("", "Unable to save changes. Please try again.");
             }
 
+            UpdateRMA(serviceCall.RMAid);
             PopulateRMADropDownList(serviceCall.RMAid);
             PopulateProductDropDownList(serviceCall.ProductID);
 
@@ -136,6 +137,19 @@ namespace FinalYearProject.Controllers
                 return HttpNotFound();
             }
             return View(serviceCall);
+        }
+
+        public void UpdateRMA(int rmaID)
+        {
+            using (var context = new ServiceContext())
+            {
+                RMA rmaUpdate = context.RMAs.FirstOrDefault(d => d.RMAid == rmaID);
+                if (rmaUpdate != null)
+                {
+                    rmaUpdate.ServiceCallID = 1;
+                }
+                context.SaveChanges();
+            }
         }
 
         // POST: ServiceCall/Delete/5

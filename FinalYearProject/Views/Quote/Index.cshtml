@@ -1,0 +1,60 @@
+﻿@model IEnumerable<FinalYearProject.Models.Quote>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LabourCostPerHour)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LabourCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartsQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartsCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalCost)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LabourCostPerHour)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LabourCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PartsQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PartsCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalCost)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.QuoteID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.QuoteID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.QuoteID })
+        </td>
+    </tr>
+}
+
+</table>

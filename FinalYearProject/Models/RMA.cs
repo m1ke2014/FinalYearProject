@@ -35,6 +35,7 @@ namespace FinalYearProject.Models
         public int StatusID { get; set; }
         public virtual Status Status { get; set; }
 
+        public int ServiceCallID { get; set; }
         public virtual ICollection<ServiceCall> ServiceCalls { get; set; }
     }
 }

@@ -64,6 +64,7 @@
         <td>
             @Html.ActionLink("Update", "Edit", new { id=item.RMAid }) |
             @Html.ActionLink("Details", "Details", new { id=item.RMAid }) |
+            @Html.ActionLink("Create Quote", "CreateQuote", new { id = item.RMAid }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.RMAid })
         </td>
     </tr>

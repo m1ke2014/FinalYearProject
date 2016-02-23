@@ -78,7 +78,7 @@ namespace FinalYearProject.Controllers
                 RMACreated = doc.RMACreated,
             };
             UpdateDOC(declarationOfConformityID);
-            //doc.RMACreated = true;
+
             return View(rmaCreate);
         }
 
@@ -87,7 +87,7 @@ namespace FinalYearProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RMAid,DeclarationOfConformityID,TimeTaken,CorrectiveAction,PartsUsed,Priorityid,StatusID,StaffID")] RMA rMA)
+        public ActionResult Create([Bind(Include = "RMAid,DeclarationOfConformityID,TimeTaken,CorrectiveAction,PartsUsed,Priorityid,StatusID,StaffID,ServiceCallID")] RMA rMA)
         {
 
             try
@@ -149,7 +149,7 @@ namespace FinalYearProject.Controllers
             }
             var rmaToUpdate = db.RMAs.Find(id);
             if (TryUpdateModel(rmaToUpdate, "",
-                new string[] { "TimeTaken", "CorrectiveAction", "PartsUsed", "Priorityid", "StatusID", "StaffID" }))
+                new string[] { "TimeTaken", "CorrectiveAction", "PartsUsed", "Priorityid", "StatusID", "StaffID", "ServiceCallID" }))
             {
                 try
                 {
@@ -238,6 +238,11 @@ namespace FinalYearProject.Controllers
                 }
                 context.SaveChanges();
             }
+        }
+
+        public ActionResult CreateQuote(int id)
+        {
+            return RedirectToAction("Create","Quote", new { RMAid = id});
         }
 
         protected override void Dispose(bool disposing)
