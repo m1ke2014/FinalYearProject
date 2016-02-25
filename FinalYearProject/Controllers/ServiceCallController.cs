@@ -16,7 +16,7 @@ namespace FinalYearProject.Controllers
     {
         private ServiceContext db = new ServiceContext();
 
-        // GET: ServiceCall
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.ServiceCalls.ToList());

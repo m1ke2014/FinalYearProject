@@ -17,7 +17,7 @@ namespace FinalYearProject.Controllers
     {
         private ServiceContext db = new ServiceContext();
 
-
+        [Authorize]
         public ActionResult Index(string id, string productID, int? faultID)
         {
             // Includes viewmodel so both products and faults are displayed

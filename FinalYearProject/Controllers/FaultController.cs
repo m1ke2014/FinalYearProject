@@ -16,7 +16,7 @@ namespace FinalYearProject.Controllers
     {
         private ServiceContext db = new ServiceContext();
 
-        // GET: Fault
+        [Authorize]
         public ActionResult Index(string searchString)
         {
             // Add search ability

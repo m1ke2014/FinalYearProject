@@ -15,7 +15,7 @@ namespace FinalYearProject.Controllers
     {
         private ServiceContext db = new ServiceContext();
 
-        // GET: Chemical
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.Chemicals.ToList());

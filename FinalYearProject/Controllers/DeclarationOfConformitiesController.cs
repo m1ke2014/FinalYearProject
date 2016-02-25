@@ -72,13 +72,27 @@ namespace FinalYearProject.Controllers
             {
                 db.DOCs.Add(declarationOfConformity);
                 db.SaveChanges();
+
+                // Send email to Service Manager
+                var email = new NewDocEmail
+                {
+                    To = "serviceManager@mksinst.com",
+                    Customer = declarationOfConformity.CustomerName,
+                    Comment = "New DOC"
+                };
+
+                email.Send();
+
                 return RedirectToAction("SubmitConfirm");
             }
             PopulateSelectedChemicalsData(declarationOfConformity);
             return View(declarationOfConformity);
         }
 
+        private void SendEmail (Comment model)
+        {
 
+        }
         // GET: DeclarationOfConformities/Edit/5
         public ActionResult Edit(int? id)
         {

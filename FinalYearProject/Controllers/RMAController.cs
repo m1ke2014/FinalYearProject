@@ -17,7 +17,7 @@ namespace FinalYearProject.Controllers
     {
         private ServiceContext db = new ServiceContext();
 
-        // GET: RMA
+        [Authorize]
         public ActionResult Index()
         {
             RMAIndexData rmaIndex = new RMAIndexData();
