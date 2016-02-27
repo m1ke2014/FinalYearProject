@@ -3,12 +3,14 @@
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_PdfLayout.cshtml";
+    var imagePath = Server.MapPath("~/images");
 }
-
-<h2>Details</h2>
+<div class="jumbotron">
+    <img src="@imagePath\MKSLogo1.jpg" alt="Logo" /><h1>Service Quote</h1>
+</div>
 
 <div>
-    <h4>Quote</h4>
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -23,6 +25,30 @@
 
         <dd>
             @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RMA.DOCs.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RMA.DOCs.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RMA.DOCs.FailureInformation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RMA.DOCs.FailureInformation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RMA.CorrectiveAction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RMA.CorrectiveAction)
         </dd>
 
         <dt>
@@ -65,9 +91,11 @@
             @Html.DisplayFor(model => model.TotalCost)
         </dd>
 
+
+
     </dl>
 </div>
-<p>
+@*<p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.QuoteID }) |
     @Html.ActionLink("Back to List", "Index")
-</p>
+</p>*@

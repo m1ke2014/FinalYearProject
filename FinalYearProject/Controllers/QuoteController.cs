@@ -23,7 +23,7 @@ namespace FinalYearProject.Controllers
             return View(db.Quotes.ToList());
         }
 
-        // GET: Quote/Details/5
+        // Create PDF that can be emailed to customer
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,7 +37,6 @@ namespace FinalYearProject.Controllers
             }
             return new PdfActionResult(quote);
 
-            //return View(quote);
         }
 
         // GET: Quote/Create
