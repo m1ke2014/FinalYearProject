@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using FinalYearProject.DAL;
 using FinalYearProject.Models;
 using FinalYearProject.ViewModels;
+using MvcRazorToPdf;
 
 namespace FinalYearProject.Controllers
 {
@@ -34,7 +35,9 @@ namespace FinalYearProject.Controllers
             {
                 return HttpNotFound();
             }
-            return View(quote);
+            return new PdfActionResult(quote);
+
+            //return View(quote);
         }
 
         // GET: Quote/Create
