@@ -1,9 +1,5 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace FinalYearProject.Models
 {
@@ -25,6 +21,9 @@ namespace FinalYearProject.Models
                 return FirstName + " " + Surname;
             }
         }
+
+        public int RMAid { get; set; }
+        public virtual ICollection<RMA> RMAs { get; set; }
 
         //public virtual JobRole JobRole { get; set; }
 

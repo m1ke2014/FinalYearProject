@@ -199,6 +199,7 @@
     <Compile Include="Controllers\RMAController.cs" />
     <Compile Include="Controllers\ServiceCallController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
+    <Compile Include="Controllers\WorkAllocationController.cs" />
     <Compile Include="DAL\ServiceContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -260,6 +261,7 @@
     <Compile Include="ViewModels\RMAEdit.cs" />
     <Compile Include="ViewModels\RMAIndexData.cs" />
     <Compile Include="ViewModels\SelectedChemicalsData.cs" />
+    <Compile Include="ViewModels\WorkAllocationIndex.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -371,6 +373,12 @@
     <Content Include="Views\Emails\Web.config" />
     <Content Include="Views\Emails\NewDoc.cshtml" />
     <Content Include="Views\Shared\_PdfLayout.cshtml" />
+    <Content Include="Views\DeclarationOfConformities\CustomerHome.cshtml" />
+    <Content Include="Views\WorkAllocation\Create.cshtml" />
+    <Content Include="Views\WorkAllocation\Delete.cshtml" />
+    <Content Include="Views\WorkAllocation\Details.cshtml" />
+    <Content Include="Views\WorkAllocation\Edit.cshtml" />
+    <Content Include="Views\WorkAllocation\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

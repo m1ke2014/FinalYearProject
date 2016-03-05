@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Customer Area</title>
+</head>
+<body>
+    <div class="jumbotron"> 
+        <img src="~/images/MKSLogo1.jpg" alt="Logo" /><h1>MKS Service Application</h1>
+        <p class="lead">Welcome to the MKS Service Application. If you wish to report a new fault please use the link below.</p>
+        <p>
+            @Html.ActionLink("Report New Fault", "Create")
+        </p>
+    </div>
+</body>
+</html>

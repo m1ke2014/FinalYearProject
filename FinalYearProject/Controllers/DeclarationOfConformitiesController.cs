@@ -237,6 +237,11 @@ namespace FinalYearProject.Controllers
             return RedirectToAction("../Home/Index");
         }
 
+        public ActionResult CustomerHome()
+        {
+            return View();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

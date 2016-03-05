@@ -33,7 +33,7 @@ namespace FinalYearProject.Controllers
         // Customer Area button
         public ActionResult CustomerArea()
         {
-            return RedirectToAction("../DeclarationOfConformities/Create");
+            return RedirectToAction("../DeclarationOfConformities/CustomerHome");
         }
 
     }

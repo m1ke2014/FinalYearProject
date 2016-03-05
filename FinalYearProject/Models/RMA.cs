@@ -37,5 +37,6 @@ namespace FinalYearProject.Models
 
         public int ServiceCallID { get; set; }
         public virtual ICollection<ServiceCall> ServiceCalls { get; set; }
+
     }
 }
