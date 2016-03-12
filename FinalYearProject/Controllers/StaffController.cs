@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using FinalYearProject.DAL;
+using FinalYearProject.Models;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using FinalYearProject.DAL;
-using FinalYearProject.Models;
 
 namespace FinalYearProject.Controllers
 {
@@ -39,7 +35,7 @@ namespace FinalYearProject.Controllers
         // GET: Staff/Create
         public ActionResult Create()
         {
-            return View();
+            return View("Create");
         }
 
         // POST: Staff/Create

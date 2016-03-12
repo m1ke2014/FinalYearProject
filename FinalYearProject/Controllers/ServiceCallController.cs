@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using FinalYearProject.DAL;
+using FinalYearProject.Models;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using FinalYearProject.DAL;
-using FinalYearProject.Models;
-using System.Data.Entity.Infrastructure;
 
 namespace FinalYearProject.Controllers
 {

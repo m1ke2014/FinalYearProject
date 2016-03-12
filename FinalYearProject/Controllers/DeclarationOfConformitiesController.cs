@@ -1,15 +1,13 @@
-﻿using System;
+﻿using FinalYearProject.DAL;
+using FinalYearProject.Models;
+using FinalYearProject.ViewModels;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using FinalYearProject.DAL;
-using FinalYearProject.Models;
-using System.Data.Entity.Infrastructure;
-using FinalYearProject.ViewModels;
 
 namespace FinalYearProject.Controllers
 {
@@ -229,7 +227,7 @@ namespace FinalYearProject.Controllers
 
         public ActionResult SubmitConfirm()
         {
-            return View();
+            return View("SubmitConfirm");
         }
 
         public ActionResult DirectToHome()
@@ -239,7 +237,7 @@ namespace FinalYearProject.Controllers
 
         public ActionResult CustomerHome()
         {
-            return View();
+            return View("CustomerHome");
         }
 
         protected override void Dispose(bool disposing)
