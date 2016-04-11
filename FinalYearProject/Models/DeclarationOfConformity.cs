@@ -28,10 +28,12 @@ namespace FinalYearProject.Models
 
         [Required]
         [Display(Name = "Customer Number")]
+        [DataType(DataType.PhoneNumber)]
         public int ContactNumber { get; set; }
 
         [Required]
         [StringLength(50)]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         [Required]
@@ -41,6 +43,7 @@ namespace FinalYearProject.Models
         public string Position { get; set; }
         public string Site { get; set; }
         public int Number { get; set; }
+        [DataType(DataType.PhoneNumber)]
 
         [Required]
         [Display(Name = "Part Number")]

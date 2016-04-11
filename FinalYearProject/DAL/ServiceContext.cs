@@ -1,11 +1,6 @@
 ﻿using FinalYearProject.Models;
-using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Web;
 
 namespace FinalYearProject.DAL
 {
@@ -22,6 +17,7 @@ namespace FinalYearProject.DAL
         public DbSet<ServiceCall> ServiceCalls { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Fault> Faults { get; set; }
+        public DbSet<Person> People { get; set; }
         public DbSet<Staff> StaffMembers { get; set; }
         public DbSet<ToDoList> ToDoLists { get; set; }
         public DbSet<JobRole> JobRoles { get; set; }
@@ -35,23 +31,11 @@ namespace FinalYearProject.DAL
         {
             base.OnModelCreating(modelBuilder);
 
-            //modelBuilder.Entity<DeclarationOfConformity>()
-            //    .HasOptional(f => f.RMA)
-            //    .WithRequired(s => s.DOCs);
-
-            //modelBuilder.Entity<RMA>()
-            //    .HasOptional(c => c.ApplicationUsers)
-            //    .WithRequired()
-            //    .WillCascadeOnDelete(false);
-
-            //modelBuilder.Entity<IdentityUserLogin>().HasKey<string>(l => l.UserId);
-            //modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);
-            //modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });
-
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
         }
 
-        //public System.Data.Entity.DbSet<FinalYearProject.Models.Chemical> Chemicals { get; set; }
+        public System.Data.Entity.DbSet<FinalYearProject.Models.Customer> Customers { get; set; }
+
     }
 }

@@ -15,8 +15,18 @@ namespace FinalYearProject.Controllers
         private ServiceContext db = new ServiceContext();
 
         [Authorize]
-        public ActionResult Index(string id, string productID, int? faultID)
+        public ActionResult Index(string id, string productID, int? faultID, string searchString)
         {
+            // Product Search feature
+            var products = from product in db.Products
+                           select product;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(product => product.ProductID.Contains(searchString)
+                || product.ProductDescription.Contains(searchString));
+            }
+
             // Includes viewmodel so both products and faults are displayed
             var viewModel = new FaultsIndexData();
             viewModel.Products = db.Products
@@ -51,7 +61,7 @@ namespace FinalYearProject.Controllers
         // GET: Product/Create
         public ActionResult Create()
         {
-            return View();
+            return View("Create");
         }
 
         // POST: Product/Create

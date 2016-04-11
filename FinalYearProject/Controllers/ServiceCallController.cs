@@ -39,7 +39,7 @@ namespace FinalYearProject.Controllers
         {
             PopulateRMADropDownList();
             PopulateProductDropDownList();
-            return View();
+            return View("Create");
         }
 
         // POST: ServiceCall/Create

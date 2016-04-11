@@ -207,7 +207,7 @@ namespace FinalYearProject.Controllers
         private void PopulateStaffDropDownList(object selectedStaff = null)
         {
                 var staffQuery = from staff in db.StaffMembers
-                                orderby staff.StaffID
+                                orderby staff.Surname
                                 select staff;
                 ViewBag.StaffID = new SelectList(staffQuery, "StaffID", "FullName", selectedStaff);
         }

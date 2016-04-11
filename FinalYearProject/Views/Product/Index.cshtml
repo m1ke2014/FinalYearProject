@@ -7,8 +7,16 @@
 <h2>Products</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Product", "Create")
 </p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find product: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
 <table class="table">
     <tr>
         <th>
@@ -53,7 +61,7 @@
                 @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
             </td>
         </tr>
-                    }
+                        }
 
 </table>
 

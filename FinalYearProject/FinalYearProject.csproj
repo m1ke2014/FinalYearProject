@@ -189,6 +189,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ChemicalController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\DeclarationOfConformitiesController.cs" />
     <Compile Include="Controllers\FaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -235,6 +236,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Chemical.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DeclarationOfConformity.cs" />
     <Compile Include="Models\Fault.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -242,6 +244,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\NewDocEmail.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Priority.cs" />
     <Compile Include="Models\Privleges.cs" />
     <Compile Include="Models\Product.cs" />
@@ -379,6 +382,11 @@
     <Content Include="Views\WorkAllocation\Details.cshtml" />
     <Content Include="Views\WorkAllocation\Edit.cshtml" />
     <Content Include="Views\WorkAllocation\Index.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Customer\Delete.cshtml" />
+    <Content Include="Views\Customer\Details.cshtml" />
+    <Content Include="Views\Customer\Edit.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

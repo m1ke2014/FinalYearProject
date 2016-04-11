@@ -1,17 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace FinalYearProject.Models
 {
-    public class Staff
+    public class Staff //: Person
     {
         public int StaffID { get; set; }
-
-        [Required]
-        [Display(Name = "First Name")]
         public string FirstName { get; set; }
-
-        [Required]
         public string Surname { get; set; }
 
         public string FullName

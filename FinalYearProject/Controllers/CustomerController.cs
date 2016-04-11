@@ -3,142 +3,121 @@ using FinalYearProject.Models;
 using System;
 using System.Data;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 
 namespace FinalYearProject.Controllers
 {
-    public class FaultController : Controller
+    public class CustomerController : Controller
     {
         private ServiceContext db = new ServiceContext();
 
-        [Authorize]
+        // GET: Customer
         public ActionResult Index(string searchString)
         {
-            // Search feature
-            var faults = from fault in db.Faults
-                         select fault;
+            var customers = from c in db.Customers
+                            select c;
 
-            if (!String.IsNullOrEmpty(searchString))
+            if(!String.IsNullOrEmpty(searchString))
             {
-                faults = faults.Where(fault => fault.FaultDescription.Contains(searchString));
+                customers = customers.Where(c => c.Company.Contains(searchString));
             }
 
-            return View(faults.ToList());
+            return View(db.Customers.ToList());
         }
 
-        // GET: Fault/Details/5
+        // GET: Customer/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Fault fault = db.Faults.Find(id);
-            if (fault == null)
+            Customer customer = db.Customers.Find(id);
+            if (customer == null)
             {
                 return HttpNotFound();
             }
-            return View(fault);
+            return View(customer);
         }
 
-        // GET: Fault/Create
+        // GET: Customer/Create
         public ActionResult Create()
         {
-            PopulateProductDropDownList();
-            return View("Create");
+            return View();
         }
 
-        // POST: Fault/Create
+        // POST: Customer/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FaultID,FaultDescription,Solution,ProductID")] Fault fault)
+        public ActionResult Create([Bind(Include = "ID,Company,Address,Phone,Email,Surname,FirstName")] Customer customer)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    db.Faults.Add(fault);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-            }
-            catch (RetryLimitExceededException)
-            {
-                ModelState.AddModelError("", "Unable to save changes. Please try again.");
+                db.Customers.Add(customer);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
 
-            PopulateProductDropDownList(fault.ProductID);
-
-            return View(fault);
+            return View(customer);
         }
 
-        // Populates drop down list with products
-        private void PopulateProductDropDownList(object selectedProduct = null)
-        {
-            var productsQuery = from product in db.Products
-                                orderby product.ProductID
-                                select product;
-            ViewBag.ProductID = new SelectList(productsQuery, "ProductID", "ProductDescription", selectedProduct);
-        }
-
-        // GET: Fault/Edit/5
+        // GET: Customer/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Fault fault = db.Faults.Find(id);
-            if (fault == null)
+            Customer customer = db.Customers.Find(id);
+            if (customer == null)
             {
                 return HttpNotFound();
             }
-            return View(fault);
+            return View(customer);
         }
 
-        // POST: Fault/Edit/5
+        // POST: Customer/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "FaultID,FaultDescription,Solution")] Fault fault)
+        public ActionResult Edit([Bind(Include = "ID,Company,Address,Phone,Email,Surname,FirstName")] Customer customer)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(fault).State = EntityState.Modified;
+                db.Entry(customer).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(fault);
+            return View(customer);
         }
 
-        // GET: Fault/Delete/5
+        // GET: Customer/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Fault fault = db.Faults.Find(id);
-            if (fault == null)
+            Customer customer = db.Customers.Find(id);
+            if (customer == null)
             {
                 return HttpNotFound();
             }
-            return View(fault);
+            return View(customer);
         }
 
-        // POST: Fault/Delete/5
+        // POST: Customer/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Fault fault = db.Faults.Find(id);
-            db.Faults.Remove(fault);
+            Customer customer = db.Customers.Find(id);
+            db.Customers.Remove(customer);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
