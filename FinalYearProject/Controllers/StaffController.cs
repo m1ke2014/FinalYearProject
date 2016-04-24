@@ -17,7 +17,7 @@ namespace FinalYearProject.Controllers
             return View(db.StaffMembers.ToList());
         }
 
-        // GET: Staff/Details/5
+        // GET: Staff/Details/
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -39,8 +39,6 @@ namespace FinalYearProject.Controllers
         }
 
         // POST: Staff/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "StaffID,FirstName,Surname,Email,Password")] Staff staff)
@@ -55,7 +53,7 @@ namespace FinalYearProject.Controllers
             return View(staff);
         }
 
-        // GET: Staff/Edit/5
+        // GET: Staff/Edit/
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -71,8 +69,6 @@ namespace FinalYearProject.Controllers
         }
 
         // POST: Staff/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "StaffID,FirstName,Surname,Email,Password")] Staff staff)
@@ -86,7 +82,7 @@ namespace FinalYearProject.Controllers
             return View(staff);
         }
 
-        // GET: Staff/Delete/5
+        // GET: Staff/Delete/
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -101,7 +97,7 @@ namespace FinalYearProject.Controllers
             return View(staff);
         }
 
-        // POST: Staff/Delete/5
+        // POST: Staff/Delete/
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -112,6 +108,7 @@ namespace FinalYearProject.Controllers
             return RedirectToAction("Index");
         }
 
+        // Close DB connection
         protected override void Dispose(bool disposing)
         {
             if (disposing)

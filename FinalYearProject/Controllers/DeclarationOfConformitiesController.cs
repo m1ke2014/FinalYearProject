@@ -24,7 +24,7 @@ namespace FinalYearProject.Controllers
             return View(db.DOCs.ToList());
         }
 
-        // GET: DeclarationOfConformities/Details/5
+        // GET: DeclarationOfConformities/Details/
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -50,8 +50,6 @@ namespace FinalYearProject.Controllers
         }
 
         // POST: DeclarationOfConformities/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,CustomerID,CustomerName,CustomerAddress,ContactName,ContactNumber,Email,Company,Position,Site,Number,PartNo,SerialNo,Description,DateOfInstallation,EquipmentUsage,EquipmentCleaned,DecontaminationProcess,OperationTime,FailureInformation,PartList,ActionTaken")] DeclarationOfConformity declarationOfConformity, string[] selectedChemicals)
@@ -91,7 +89,7 @@ namespace FinalYearProject.Controllers
         {
 
         }
-        // GET: DeclarationOfConformities/Edit/5
+        // GET: DeclarationOfConformities/Edit/
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -131,8 +129,6 @@ namespace FinalYearProject.Controllers
         }
 
         // POST: DeclarationOfConformities/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int? id, string[] selectedChemicals)
@@ -199,7 +195,7 @@ namespace FinalYearProject.Controllers
             }
         }
 
-        // GET: DeclarationOfConformities/Delete/5
+        // GET: DeclarationOfConformities/Delete/
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -214,7 +210,7 @@ namespace FinalYearProject.Controllers
             return View(declarationOfConformity);
         }
 
-        // POST: DeclarationOfConformities/Delete/5
+        // POST: DeclarationOfConformities/Delete/
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -225,21 +221,25 @@ namespace FinalYearProject.Controllers
             return RedirectToAction("Index");
         }
 
+        // Navigate to submit confirmation
         public ActionResult SubmitConfirm()
         {
             return View("SubmitConfirm");
         }
 
+        // Navigate to home page
         public ActionResult DirectToHome()
         {
             return RedirectToAction("../Home/Index");
         }
 
+        // Navigate to customer home screen
         public ActionResult CustomerHome()
         {
             return View("CustomerHome");
         }
 
+        // Close DB connection
         protected override void Dispose(bool disposing)
         {
             if (disposing)

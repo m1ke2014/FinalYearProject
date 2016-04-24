@@ -27,7 +27,7 @@ namespace FinalYearProject.Controllers
             return View(db.Customers.ToList());
         }
 
-        // GET: Customer/Details/5
+        // GET: Customer/Details/
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -49,8 +49,6 @@ namespace FinalYearProject.Controllers
         }
 
         // POST: Customer/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Company,Address,Phone,Email,Surname,FirstName")] Customer customer)
@@ -65,7 +63,7 @@ namespace FinalYearProject.Controllers
             return View(customer);
         }
 
-        // GET: Customer/Edit/5
+        // GET: Customer/Edit/
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -80,9 +78,7 @@ namespace FinalYearProject.Controllers
             return View(customer);
         }
 
-        // POST: Customer/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Customer/Edit/
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Company,Address,Phone,Email,Surname,FirstName")] Customer customer)
@@ -96,7 +92,7 @@ namespace FinalYearProject.Controllers
             return View(customer);
         }
 
-        // GET: Customer/Delete/5
+        // GET: Customer/Delete/
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -111,7 +107,7 @@ namespace FinalYearProject.Controllers
             return View(customer);
         }
 
-        // POST: Customer/Delete/5
+        // POST: Customer/Delete/
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -122,6 +118,7 @@ namespace FinalYearProject.Controllers
             return RedirectToAction("Index");
         }
 
+        // Close DB Connection
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -29,6 +29,7 @@ namespace FinalYearProject.Controllers
             return View(viewModel);
         }
 
+        // Close DB Connection
         protected override void Dispose(bool disposing)
         {
             if (disposing)

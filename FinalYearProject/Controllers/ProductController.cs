@@ -43,7 +43,7 @@ namespace FinalYearProject.Controllers
             return View(viewModel);
         }
 
-        // GET: Product/Details/5
+        // GET: Product/Details/
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -65,23 +65,34 @@ namespace FinalYearProject.Controllers
         }
 
         // POST: Product/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductID,ProductDescription")] Product product)
+        public ActionResult Create([Bind(Include = "ProductID,ProductDescription")] Product product, string ProductID)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
+            //{
+            //    db.Products.Add(product);
+            //    db.SaveChanges();                   
+            //    return RedirectToAction("Index");
+            //}
+
+            bool productExists = db.Products.Any(productID => product.ProductID.Equals(ProductID));
+
+            if (productExists)
+            {
+                ViewBag.Message = "Error, Product already exists";
+            }
+            else
             {
                 db.Products.Add(product);
-                db.SaveChanges();                   // Need exception handler if product exists
+                db.SaveChanges();                   
                 return RedirectToAction("Index");
             }
 
             return View(product);
         }
 
-        // GET: Product/Edit/5
+        // GET: Product/Edit/
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -96,7 +107,7 @@ namespace FinalYearProject.Controllers
             return View(product);
         }
 
-        // POST: Product/Edit/5
+        // POST: Product/Edit/
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
 
@@ -125,7 +136,7 @@ namespace FinalYearProject.Controllers
         }
 
 
-        // GET: Product/Delete/5
+        // GET: Product/Delete/
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -140,7 +151,7 @@ namespace FinalYearProject.Controllers
             return View(product);
         }
 
-        // POST: Product/Delete/5
+        // POST: Product/Delete/
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
@@ -151,6 +162,7 @@ namespace FinalYearProject.Controllers
             return RedirectToAction("Index");
         }
 
+        // Close DB connection
         protected override void Dispose(bool disposing)
         {
             if (disposing)
