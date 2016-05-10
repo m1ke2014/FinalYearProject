@@ -10,6 +10,6 @@ namespace FinalYearProject.Models
         public int JobRoleID { get; set; }
         public string JobTitle { get; set; }
 
-        public virtual Privleges Privleges { get; set; }
+        public virtual Privlege Privleges { get; set; }
     }
 }

@@ -1,19 +1,20 @@
-namespace FinalYearProject.Migrations
+namespace FinalYearProject.ServiceContextMigrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<FinalYearProject.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<FinalYearProject.DAL.ServiceContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "FinalYearProject.Models.ApplicationDbContext";
+            MigrationsDirectory = @"ServiceContextMigrations";
+            ContextKey = "FinalYearProject.DAL.ServiceContext";
         }
 
-        protected override void Seed(FinalYearProject.Models.ApplicationDbContext context)
+        protected override void Seed(FinalYearProject.DAL.ServiceContext context)
         {
             //  This method will be called after migrating to the latest version.
 

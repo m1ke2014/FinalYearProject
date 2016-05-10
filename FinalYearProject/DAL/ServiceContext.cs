@@ -21,7 +21,7 @@ namespace FinalYearProject.DAL
         public DbSet<Staff> StaffMembers { get; set; }
         public DbSet<ToDoList> ToDoLists { get; set; }
         public DbSet<JobRole> JobRoles { get; set; }
-        public DbSet<Privleges> Privleges { get; set; }
+        public DbSet<Privlege> Privleges { get; set; }
         public DbSet<Chemical> Chemicals { get; set; }
         public DbSet<Priority> Priorities { get; set; }
         public DbSet<Comment> Comments { get; set; }

@@ -22,5 +22,15 @@ namespace FinalYearProject.Controllers
             return RedirectToAction("../DeclarationOfConformities/CustomerHome");
         }
 
+        public ActionResult Drawings()
+        {
+            return View("Drawings");
+        }
+
+        public ActionResult Procedures()
+        {
+            return View("Procedures");
+        }
+
     }
 }

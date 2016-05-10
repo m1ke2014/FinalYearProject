@@ -200,6 +200,7 @@
     <Compile Include="Controllers\RMAController.cs" />
     <Compile Include="Controllers\ServiceCallController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
+    <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Controllers\WorkAllocationController.cs" />
     <Compile Include="DAL\ServiceContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -212,10 +213,6 @@
     <Compile Include="Migrations\201601300743201_loginDetails.cs" />
     <Compile Include="Migrations\201601300743201_loginDetails.Designer.cs">
       <DependentUpon>201601300743201_loginDetails.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601300753595_LoginDetails2.cs" />
-    <Compile Include="Migrations\201601300753595_LoginDetails2.Designer.cs">
-      <DependentUpon>201601300753595_LoginDetails2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201601300858458_RMA.cs" />
     <Compile Include="Migrations\201601300858458_RMA.Designer.cs">
@@ -246,7 +243,7 @@
     <Compile Include="Models\NewDocEmail.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Priority.cs" />
-    <Compile Include="Models\Privleges.cs" />
+    <Compile Include="Models\Privlege.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Quote.cs" />
     <Compile Include="Models\RMA.cs" />
@@ -256,6 +253,7 @@
     <Compile Include="Models\ToDoList.cs" />
     <Compile Include="Models\WorkAllocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceContextMigrations\Configuration.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\DOCIndexData.cs" />
     <Compile Include="ViewModels\FaultsIndexData.cs" />
@@ -387,6 +385,13 @@
     <Content Include="Views\Customer\Details.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Status\Create.cshtml" />
+    <Content Include="Views\Status\Delete.cshtml" />
+    <Content Include="Views\Status\Details.cshtml" />
+    <Content Include="Views\Status\Edit.cshtml" />
+    <Content Include="Views\Status\Index.cshtml" />
+    <Content Include="Views\Home\Drawings.cshtml" />
+    <Content Include="Views\Home\Procedures.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -405,9 +410,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601300743201_loginDetails.resx">
       <DependentUpon>201601300743201_loginDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601300753595_LoginDetails2.resx">
-      <DependentUpon>201601300753595_LoginDetails2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601300858458_RMA.resx">
       <DependentUpon>201601300858458_RMA.cs</DependentUpon>

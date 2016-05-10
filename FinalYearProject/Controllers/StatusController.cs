@@ -1,114 +1,121 @@
-﻿using FinalYearProject.DAL;
-using FinalYearProject.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
+using FinalYearProject.DAL;
+using FinalYearProject.Models;
 
 namespace FinalYearProject.Controllers
 {
-    public class ChemicalController : Controller
+    public class StatusController : Controller
     {
         private ServiceContext db = new ServiceContext();
 
-        [Authorize]
+        // GET: Status
         public ActionResult Index()
         {
-            return View(db.Chemicals.ToList());
+            return View(db.Statuses.ToList());
         }
 
-        //Chemical/Details
+        // GET: Status/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Chemical chemical = db.Chemicals.Find(id);
-            if (chemical == null)
+            Status status = db.Statuses.Find(id);
+            if (status == null)
             {
                 return HttpNotFound();
             }
-            return View(chemical);
+            return View(status);
         }
 
-        // Chemical/Create
+        // GET: Status/Create
         public ActionResult Create()
         {
-            return View("Create");
+            return View();
         }
 
-        // POST: Chemical/Create
+        // POST: Status/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ChemicalID,Description")] Chemical chemical)
+        public ActionResult Create([Bind(Include = "StatusID,Description")] Status status)
         {
             if (ModelState.IsValid)
             {
-                db.Chemicals.Add(chemical);
+                db.Statuses.Add(status);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(chemical);
+            return View(status);
         }
 
-        // GET: Chemical/Edit/
+        // GET: Status/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Chemical chemical = db.Chemicals.Find(id);
-            if (chemical == null)
+            Status status = db.Statuses.Find(id);
+            if (status == null)
             {
                 return HttpNotFound();
             }
-            return View(chemical);
+            return View(status);
         }
 
-        // POST: Chemical/Edit/
+        // POST: Status/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ChemicalID,Description")] Chemical chemical)
+        public ActionResult Edit([Bind(Include = "StatusID,Description")] Status status)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(chemical).State = EntityState.Modified;
+                db.Entry(status).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(chemical);
+            return View(status);
         }
 
-        // Chemical/Delete/
+        // GET: Status/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Chemical chemical = db.Chemicals.Find(id);
-            if (chemical == null)
+            Status status = db.Statuses.Find(id);
+            if (status == null)
             {
                 return HttpNotFound();
             }
-            return View(chemical);
+            return View(status);
         }
 
-        // POST: Chemical/Delete/
+        // POST: Status/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Chemical chemical = db.Chemicals.Find(id);
-            db.Chemicals.Remove(chemical);
+            Status status = db.Statuses.Find(id);
+            db.Statuses.Remove(status);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        // Close DB connection
         protected override void Dispose(bool disposing)
         {
             if (disposing)

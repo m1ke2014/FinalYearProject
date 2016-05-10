@@ -29,7 +29,7 @@ namespace FinalYearProject.Controllers
             return View(faults.ToList());
         }
 
-        // GET: Fault/Details/5
+        // GET: Fault/Details/
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -52,8 +52,6 @@ namespace FinalYearProject.Controllers
         }
 
         // POST: Fault/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "FaultID,FaultDescription,Solution,ProductID")] Fault fault)
@@ -86,7 +84,7 @@ namespace FinalYearProject.Controllers
             ViewBag.ProductID = new SelectList(productsQuery, "ProductID", "ProductDescription", selectedProduct);
         }
 
-        // GET: Fault/Edit/5
+        // GET: Fault/Edit/
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -102,8 +100,6 @@ namespace FinalYearProject.Controllers
         }
 
         // POST: Fault/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "FaultID,FaultDescription,Solution")] Fault fault)
@@ -143,6 +139,7 @@ namespace FinalYearProject.Controllers
             return RedirectToAction("Index");
         }
 
+        // Close DB connection
         protected override void Dispose(bool disposing)
         {
             if (disposing)

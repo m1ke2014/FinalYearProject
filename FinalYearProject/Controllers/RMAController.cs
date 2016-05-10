@@ -16,6 +16,7 @@ namespace FinalYearProject.Controllers
         [Authorize]
         public ActionResult Index()
         {
+            // Viewmodel to display Declaration of Conformities and RMAs
             RMAIndexData rmaIndex = new RMAIndexData();
             rmaIndex.DOCs = from doc in db.DOCs select doc;
             rmaIndex.RMAs = from rma in db.RMAs select rma;
@@ -23,7 +24,7 @@ namespace FinalYearProject.Controllers
             return View(rmaIndex);
         }
 
-        // GET: RMA/Details/5
+        // GET: RMA/Details
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -79,8 +80,6 @@ namespace FinalYearProject.Controllers
         }
 
         // POST: RMA/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "RMAid,DeclarationOfConformityID,TimeTaken,CorrectiveAction,PartsUsed,Priorityid,StatusID,StaffID,ServiceCallID")] RMA rMA)
@@ -111,7 +110,7 @@ namespace FinalYearProject.Controllers
             return View(rMA);
         }
 
-        // GET: RMA/Edit/5
+        // GET: RMA/Edit
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -131,9 +130,7 @@ namespace FinalYearProject.Controllers
             return View(rMA);
         }
 
-        // POST: RMA/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: RMA/Edit/
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public ActionResult EditPost(int? id)
@@ -168,7 +165,7 @@ namespace FinalYearProject.Controllers
             return View(rmaToUpdate);
         }
 
-        // GET: RMA/Delete/5
+        // GET: RMA/Delete/
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -183,7 +180,7 @@ namespace FinalYearProject.Controllers
             return View(rMA);
         }
 
-        // POST: RMA/Delete/5
+        // POST: RMA/Delete/
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -236,11 +233,13 @@ namespace FinalYearProject.Controllers
             }
         }
 
+        // Navigate to Create Quote
         public ActionResult CreateQuote(int id)
         {
             return RedirectToAction("Create","Quote", new { RMAid = id});
         }
 
+        // Close db connection
         protected override void Dispose(bool disposing)
         {
             if (disposing)

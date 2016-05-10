@@ -4,10 +4,24 @@
 
 <h2>Staff Area</h2>
 
+<div class="container">
+    <div class="jumbotron">
+        <img src="~/images/MKSLogo1.jpg" alt="Logo" /><h1>MKS Service Application</h1>
 
-<div class="jumbotron">
-    <img src="~/images/MKSLogo1.jpg" alt="Logo" /><h1>MKS Service Application</h1>
+        <p class="lead">Welcome to the MKS staff area. Please select the desired option from the buttons at the top of the screen.</p>
 
-    <p class="lead">Welcome to the MKS staff area. Please select the desired option from the buttons at the top of the screen.</p>
+        <div class="col-sm-3">
+            <h4>Useful Links</h4>
+            <p>
+                @Html.ActionLink("Drawings", "Drawings")
+            </p>
+            <p></p>
+            <p>
+                @Html.ActionLink("Procedures", "Procedures")
+            </p>
+        </div>
+    </div>
+
+
 
 </div>

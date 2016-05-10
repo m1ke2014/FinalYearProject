@@ -60,8 +60,6 @@ namespace FinalYearProject.Controllers
         }
 
         // POST: Quote/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "QuoteID,RMAid,DeclarationOfConformityID,Date,LabourCostPerHour,LabourCost,PartsQuantity,PartsCost,TotalPartsCost,TotalCost")] Quote quote)
@@ -76,7 +74,7 @@ namespace FinalYearProject.Controllers
             return View(quote);
         }
 
-        // GET: Quote/Edit/5
+        // GET: Quote/Edit/
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,9 +89,7 @@ namespace FinalYearProject.Controllers
             return View(quote);
         }
 
-        // POST: Quote/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Quote/Edit/
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "QuoteID,Date,LabourCostPerHour,LabourCost,PartsQuantity,PartsCost,TotalCost")] Quote quote)
@@ -107,7 +103,7 @@ namespace FinalYearProject.Controllers
             return View(quote);
         }
 
-        // GET: Quote/Delete/5
+        // GET: Quote/Delete/
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -122,7 +118,7 @@ namespace FinalYearProject.Controllers
             return View(quote);
         }
 
-        // POST: Quote/Delete/5
+        // POST: Quote/Delete/
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -133,6 +129,7 @@ namespace FinalYearProject.Controllers
             return RedirectToAction("Index");
         }
 
+        // Close DB connection
         protected override void Dispose(bool disposing)
         {
             if (disposing)
